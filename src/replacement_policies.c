@@ -56,21 +56,26 @@ struct replacement_policy *lru_replacement_policy_new(uint32_t sets, uint32_t as
 void rand_cache_access(struct replacement_policy *replacement_policy,
                        struct cache_system *cache_system, uint32_t set_idx, uint32_t tag)
 {
-    // TODO update the RAND replacement policy state given a new memory access
+    // NOTE: update the RAND replacement policy state given a new memory access
+    // Do not need to do anything for RAND policy
+    return;
 }
 
 uint32_t rand_eviction_index(struct replacement_policy *replacement_policy,
                              struct cache_system *cache_system, uint32_t set_idx)
 {
-    // TODO return the index within the set that should be evicted.
-
-    return 0;
+    // NOTE: return the index within the set that should be evicted.
+    // This should be a random index within the set.
+    return rand() % cache_system->associativity;
 }
 
 void rand_replacement_policy_cleanup(struct replacement_policy *replacement_policy)
 {
-    // TODO cleanup any additional memory that you allocated in the
+    // NOTE: cleanup any additional memory that you allocated in the
     // rand_replacement_policy_new function.
+    // No additional memory was allocated in rand_replacement_policy_new,
+    // so there is nothing to clean up here.
+    return;
 }
 
 struct replacement_policy *rand_replacement_policy_new(uint32_t sets, uint32_t associativity)
@@ -83,9 +88,10 @@ struct replacement_policy *rand_replacement_policy_new(uint32_t sets, uint32_t a
     rand_rp->eviction_index = &rand_eviction_index;
     rand_rp->cleanup = &rand_replacement_policy_cleanup;
 
-    // TODO allocate any additional memory to store metadata here and assign to
+    // NOTE: allocate any additional memory to store metadata here and assign to
     // rand_rp->data.
-
+    // No addition memory is needed for the RAND policy.
+    rand_rp->data = NULL;
     return rand_rp;
 }
 
