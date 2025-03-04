@@ -1,0 +1,3 @@
+# Cache Simulator
+
+LRU, RANDOM, LRU_PREFER_CLEAN
