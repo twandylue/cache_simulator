@@ -2,7 +2,7 @@
 
 Run cache simulator with LRU, RANDOM, and LRU_PREFER_CLEAN mode.
 
-## Run the tests
+## Run the Simulator
 
 ```bash
 $ make
