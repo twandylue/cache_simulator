@@ -1,13 +1,19 @@
 # Cache Simulator
 
-LRU, RANDOM, LRU_PREFER_CLEAN
+Run cache simulator with LRU, RANDOM, and LRU_PREFER_CLEAN mode.
 
 ## Run the tests
 
 ```bash
-$ python3.10 -m venv ./venv
-$ source ./venv/bin/activate
-$ python3 -m pip install -r requirements.txt
-$ python3 ./bin/run_grader.py
+$ make
+$ ./cachesim <mode> <cache_size> <line_size> <associativity> < <trace_file>
+(...)
+```
+
+For example:
+
+```bash
+$ ./cachesim LRU 32768 2048 4 < ./inputs/trace1
+```
 (...)
 ```
