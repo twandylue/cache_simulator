@@ -72,6 +72,7 @@ int cache_system_mem_access(struct cache_system *cache_system, uint32_t address,
             }
         }
 
+        // The cache line is full, so we need to evict a cache line.
         if (insert_index < 0) {
             // An eviction is necessary. Call the replacement policy's eviction
             // index function.
