@@ -14,6 +14,6 @@ For example:
 
 ```bash
 $ ./cachesim LRU 32768 2048 4 < ./inputs/trace1
-```
 (...)
 ```
+
