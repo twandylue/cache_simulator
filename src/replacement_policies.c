@@ -193,7 +193,7 @@ void lru_prefer_clean_cache_access(struct replacement_policy *replacement_policy
 uint32_t lru_prefer_clean_eviction_index(struct replacement_policy *replacement_policy,
                                          struct cache_system *cache_system, uint32_t set_idx)
 {
-    // TODO return the index within the set that should be evicted.
+    // NOTE return the index within the set that should be evicted.
     struct lru_data *lru_pc = (struct lru_data *)replacement_policy->data;
     int set_start = set_idx * cache_system->associativity;
     // First, try to find the least recently used clean line
@@ -208,10 +208,11 @@ uint32_t lru_prefer_clean_eviction_index(struct replacement_policy *replacement_
             }
         }
     }
-    // If we found a clean line, return its index
+
     if (oldest_clean_index != UINT32_MAX) {
         return oldest_clean_index;
     }
+
     // Otherwise, find the least recently used dirty line
     uint32_t oldest_dirty_age = UINT32_MAX;
     uint32_t oldest_dirty_index = 0;
